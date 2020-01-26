@@ -1,0 +1,8 @@
+<view class="ppaContainer">
+  <image mode="aspectFit" src="../../images/appIcon.png"></image>
+  <view class="text">
+    <text class="name">豆瓣APP</text>
+    <text class="ppword">记录你的书影音生活</text>
+  </view>
+  <text class="ppaclick">打开APP</text>
+</view>

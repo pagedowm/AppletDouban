@@ -1,0 +1,7 @@
+<!--pages/movieDesc/movieDesc.wxml-->
+<view class="container">
+  <!-- 头部搜索框 -->
+  <dbHeader></dbHeader>
+  <!-- 推广栏 -->
+  <popul></popul>
+</view>

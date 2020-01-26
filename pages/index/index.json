@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "dbHeader": "../../components/dbHeader/dbHeader",
+    "popul": "../../components/popularizeApp/popularizeApp"
+  }
+}

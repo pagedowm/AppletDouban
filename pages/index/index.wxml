@@ -1,0 +1,154 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 头部 -->
+  <dbHeader></dbHeader>
+  <!-- 推广栏 -->
+  <popul></popul>
+  <!-- 影院热映 -->
+  <view class="default-content">
+    <view class="content-header">
+      <view class="title {{optType?'active':''}}" bindtap="changeOptType">影院热映</view>
+      <view class="title {{optType?'':'active'}}" bindtap="changeOptType2">即将上映</view>
+      <navigator class="showMore-right">点此看更多></navigator>
+    </view>
+    <view class="content-container {{optType?'active':''}}">
+      <navigator class="item" wx:for="{{hotMovieList}}" wx:key="index" wx:if="{{index<6}}">
+        <view class="cover">
+          <image mode="widthFix" class="like" src="../../images/likeIcon.png"></image>
+          <image class="movieShow" src="{{item.images.large}}"></image>
+        </view>
+        <view class="info">
+          <view class="title">{{item.title}}</view>
+          <view class="average">评分：{{item.rating.average}}</view>
+        </view>
+      </navigator>
+    </view>
+    <view class="content-container {{optType?'':'active'}}">
+      <navigator class="item" wx:for="{{soonMovieList}}" wx:key="index" wx:if="{{index<6}}">
+        <view class="cover">
+          <image mode="widthFix" class="like" src="../../images/likeIcon.png"></image>
+          <image class="movieShow" src="{{item.images.large}}"></image>
+        </view>
+        <view class="info">
+          <view class="title">{{item.title}}</view>
+          <view class="average">{{item.rating.average}}人想看</view>
+          <!-- <view class="timer">{{item.pubdates}}</view> -->
+        </view>
+      </navigator>
+    </view>
+  </view>
+  
+  <view class="default-content">
+    <view class="content-header">
+      <view class="title" bindtap="changeOptType">豆瓣热门</view>
+      <navigator class="showMore-right">点此看更多></navigator>
+    </view>
+    <view class="content-container active">
+      <navigator class="item" wx:for="{{top250MovieList}}" wx:key="index" wx:if="{{index<6}}">
+        <view class="cover">
+          <image mode="widthFix" class="like" src="../../images/likeIcon.png"></image>
+          <image class="movieShow" src="{{item.images.large}}"></image>
+        </view>
+        <view class="info">
+          <view class="title">{{item.title}}</view>
+          <view class="average">评分：{{item.rating.average}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="default-content">
+    <view class="content-header">
+      <view class="title" bindtap="changeOptType">豆瓣榜单</view>
+      <navigator class="showMore-right">点此看更多></navigator>
+    </view>
+    <view class="content-body">
+      <view class="charts">
+        <view class="title">
+          <view class="prettify">
+            <text class="fontType">豆瓣周榜</text>
+            <text class="fontType2">口碑电影</text>
+          </view> 
+        </view>
+        <view class="list" style="background: url(../../images/listBGI1.jpg) no-repeat center center; background-size: 100% 100%;opacity: .8;">
+          <view class="prettify">
+            <navigator class="item" wx:for="{{hotMovieList}}" wx:key="index" wx:if="{{index<3}}">
+              {{index +1}}.{{item.title}} <text class="grade">{{item.rating.average}}</text>
+            </navigator>
+          </view>
+        </view>
+      </view>
+
+      <view class="charts">
+        <view class="title">
+          <view class="prettify">
+            <image mode="" src="../../images/top250.jpg"></image>
+          </view> 
+        </view>
+        <view class="list" style="background: url(../../images/listBGI2.jpg) no-repeat center center; background-size: 100% 100%;opacity: .8;">
+          <view class="prettify">
+            <navigator class="item" wx:for="{{hotMovieList}}" wx:key="index" wx:if="{{index<3}}">
+              {{index +1}}.{{item.title}} <text class="grade">{{item.rating.average}}</text>
+            </navigator>
+          </view>
+        </view>
+      </view> 
+    </view>
+  </view>
+
+  <view class="default-content">
+    <view class="content-header">
+      <view class="title" bindtap="changeOptType">分类浏览</view>
+      <navigator class="showMore-right">点此看更多></navigator>
+    </view>
+    <view class="content-container active">
+      <view class="category">
+        <navigator class="opt">悬疑片 ></navigator>
+        <navigator class="item" wx:for="{{top250MovieList}}" wx:key="index" wx:if="{{index<3}}">
+          <view class="cover">
+            <image mode="widthFix" class="like" src="../../images/likeIcon.png"></image>
+            <image class="movieShow" src="{{item.images.large}}"></image>
+          </view>
+          <view class="info">
+            <view class="title">{{item.title}}</view>
+            <view class="average">评分：{{item.rating.average}}</view>
+          </view>
+        </navigator>
+      </view>
+
+      <view class="category">
+        <navigator class="opt">喜剧片 ></navigator>
+        <navigator class="item" wx:for="{{top250MovieList}}" wx:key="index" wx:if="{{index<3}}">
+          <view class="cover">
+            <image mode="widthFix" class="like" src="../../images/likeIcon.png"></image>
+            <image class="movieShow" src="{{item.images.large}}"></image>
+          </view>
+          <view class="info">
+            <view class="title">{{item.title}}</view>
+            <view class="average">评分：{{item.rating.average}}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class="default-content">
+    <view class="content-header">
+      <view class="title" bindtap="changeOptType">豆瓣热门</view>
+      <navigator class="showMore-right">点此看更多></navigator>
+    </view>
+    <view class="content-container active">
+      <navigator class="item half" wx:for="{{top250MovieList}}" wx:key="index" wx:if="{{index<2}}">
+        <view class="cover half">
+          <image mode="widthFix" class="like" src="../../images/likeIcon.png"></image>
+          <image class="movieShow" src="{{item.images.large}}"></image>
+        </view>
+        <view class="info">
+          <view class="title">{{item.title}}</view>
+          <view class="average">评分：{{item.rating.average}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+</view>

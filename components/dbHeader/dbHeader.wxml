@@ -1,0 +1,11 @@
+<view class="dbheader">
+  <view class="search">
+    <view class="logo">豆瓣</view>
+    <form bindtap="search" class=" {{activeType?'active':''}}">
+      <input placeholder="搜索"></input>
+    </form>
+  </view>
+  <navigator class="setter">
+    <image mode="aspectFit" src="../../images/logo.png"></image>
+  </navigator>
+</view>
